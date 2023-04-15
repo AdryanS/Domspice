@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "name": "Pimenta do reino",
+    "description": "Contem um pacote de 100 gramas",
+    "price": 5.99,
+    "active": false,
+    "quantity": 1
+  },
+  {
+    "id": 1,
+    "name": "Açafrão",
+    "description": "Contem um pacote de 100 gramas",
+    "price": 7.49,
+    "active": false,
+    "quantity": 1
+  }
+]
