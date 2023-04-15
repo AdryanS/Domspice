@@ -20,8 +20,8 @@
       :key="index"
     >
       <div
-        :class="`bg-gray-950 text-gray-100 py-4 px-4 rounded-md transition-all duration-200 ${
-          product.active && 'border border-green-400'
+        :class="`bg-gray-950 border-[2px] text-gray-100 py-4 px-4 box-border rounded-md transition-all duration-200 ${
+          product.active && 'border-green-400'
         }`"
       >
         <div class="flex flex-row items-center justify-between">
@@ -55,7 +55,7 @@
             >
             <div class="border rounded">
               <button
-                class="bg-gray-950 w-6"
+                class="bg-gray-950 w-5"
                 @click="
                   () => {
                     product.quantity >= 10 ? '' : product.quantity++;
@@ -65,7 +65,7 @@
                 +
               </button>
               <input
-                class="w-8 bg-gray-950 text-center"
+                class="w-8 bg-gray-950 text-center text-sm"
                 inputmode="numeric"
                 :value="product.quantity"
                 type="number"
@@ -73,7 +73,7 @@
                 id="qtd"
               />
               <button
-                class="bg-gray-950 w-6"
+                class="bg-gray-950 w-5"
                 @click="
                   () => {
                     product.quantity <= 0 ? '' : product.quantity--;
@@ -97,6 +97,10 @@
       </div>
     </div>
   </div>
+
+  <footer class="w-full h-12">
+
+  </footer>
 
   <div
     class="h-12 w-auto drop-shadow-xl flex flex-row-reverse bottom-10 left-4 m-2 sticky"
