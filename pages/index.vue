@@ -50,12 +50,12 @@
         </div>
         <div class="flex flex-row justify-between items-center">
           <div class="flex flex-row text-white">
-            <label class="text-base font-normal mr-2" for="qtd"
+            <label class="text-sm font-normal mr-2" for="qtd"
               >Quantidade:</label
             >
             <div class="border rounded">
               <button
-                class="bg-gray-950 w-5"
+                class="bg-gray-950 w-6"
                 @click="
                   () => {
                     product.quantity >= 10 ? '' : product.quantity++;
@@ -65,15 +65,15 @@
                 +
               </button>
               <input
-                class="w-8 bg-gray-950 text-center text-sm"
-                inputmode="numeric"
+                class="w-5 bg-gray-950 text-center text-sm"
                 :value="product.quantity"
                 type="number"
+                disabled
                 name="qtd"
                 id="qtd"
               />
               <button
-                class="bg-gray-950 w-5"
+                class="bg-gray-950 w-6"
                 @click="
                   () => {
                     product.quantity <= 0 ? '' : product.quantity--;
@@ -98,15 +98,13 @@
     </div>
   </div>
 
-  <footer class="w-full h-12">
-
-  </footer>
+  <footer class="w-full h-12"></footer>
 
   <div
     class="h-12 w-auto drop-shadow-xl flex flex-row-reverse bottom-10 left-4 m-2 sticky"
   >
     <button
-    @click="() => sendMessage()"
+      @click="() => sendMessage()"
       class="w-12 h-12 flex rounded-md items-center justify-center bg-gray-950"
     >
       <Icon
@@ -114,10 +112,11 @@
         name="material-symbols:send-rounded"
       />
     </button>
-    <div :class="`rounded-l-xl bg-white w-32 h-full flex justify-center items-center`" @v-if="total !== '0,00'">
-      <h1 class="text-emerald-700 text-xl font-semibold">
-        R$ {{ total }}
-      </h1>
+    <div
+      :class="`rounded-l-xl bg-white w-32 h-full flex justify-center items-center`"
+      @v-if="total !== '0,00'"
+    >
+      <h1 class="text-emerald-700 text-xl font-semibold">R$ {{ total }}</h1>
     </div>
   </div>
 </template>
@@ -155,9 +154,23 @@ export default {
     sendMessage() {
       let message = [];
 
-      message.push("Sua%20compra%20foi:%0A", this.productCart.map(i => (`${i.quantity}x%20${i.name.replaceAll(' ', '%20')}%20%2D%20%52%24${i.price.toFixed(2).replace('.', ',')}`)).join('%0A') + `%0A%0ATotal:%20%52%24${this.total}`);
-
-      window.location.href = `https://api.whatsapp.com/send?phone=556181010674&text=${ message.join('%0A')}`
+      if (this.productCart.length != 0) {
+        message.push(
+          "Seu%20pedido%20foi:%0A",
+          this.productCart
+            .map(
+              (i) =>
+                `${i.quantity}x%20${i.name.replaceAll(
+                  " ",
+                  "%20"
+                )}%20%2D%20%52%24${i.price.toFixed(2).replace(".", ",")}`
+            )
+            .join("%0A") + `%0A%0ATotal:%20%52%24${this.total}`
+        );
+        window.location.href = `https://api.whatsapp.com/send?phone=556181010674&text=${message.join(
+          "%0A"
+        )}`;
+      }
     },
   },
   computed: {
