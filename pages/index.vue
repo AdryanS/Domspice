@@ -10,7 +10,7 @@
     >
       <h1 class="text-base font-semibold">
         Clique no icone de adicão no produto desejado ou mude a quantidade para inserir ou remover-lo
-        do carrinho
+        do carrinho.
       </h1>
     </div>
 
@@ -120,9 +120,10 @@
       />
     </button>
     <div
-      :class="`rounded-l-xl bg-white w-32 h-full flex justify-center items-center`"
+      :class="`rounded-l-xl bg-white w-40 h-full flex justify-center items-center`"
     >
-      <h1 class="text-emerald-700 text-xl font-semibold">R$ {{ total }}</h1>
+      <p class="text-xs -translate-y-[2px] mr-1">total:</p>
+      <p class="text-emerald-700 text-xl font-semibold">R$ {{ total }}</p>
     </div>
   </div>
 </template>
