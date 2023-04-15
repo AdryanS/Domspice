@@ -9,7 +9,7 @@
       class="max-w-5xl w-full mt-8 flex items-center justify-center text-center bg-gray-950 text-white p-4 rounded"
     >
       <h1 class="text-base font-semibold">
-        Clique no icone de adicão no produto desejado para inserir ou remover-lo
+        Clique no icone de adicão no produto desejado ou mude a quantidade para inserir ou remover-lo
         do carrinho
       </h1>
     </div>
@@ -38,6 +38,9 @@
                 product.active == false
                   ? removeCart(product)
                   : addCard(product);
+                product.active == false
+                  ? product.quantity = 0
+                  : product.quantity = 1;
               }
             "
           >
@@ -49,8 +52,8 @@
           </div>
         </div>
         <div class="flex flex-row justify-between items-center">
-          <div class="flex flex-row text-white">
-            <label class="text-sm font-normal mr-2" for="qtd"
+          <div class="flex flex-row text-white items-center">
+            <label class="text-xs font-normal mr-2" for="qtd"
               >Quantidade:</label
             >
             <div class="border rounded">
@@ -59,10 +62,12 @@
                 @click="
                   () => {
                     product.quantity >= 10 ? '' : product.quantity++;
+                    product.quantity == 1 ? product.active = true : ''
+                    product.quantity == 1 ? addCard(product) : ''
                   }
-                "
+                  "
               >
-                +
+              +
               </button>
               <input
                 class="w-5 bg-gray-950 text-center text-sm"
@@ -71,16 +76,18 @@
                 disabled
                 name="qtd"
                 id="qtd"
-              />
-              <button
+                />
+                <button
                 class="bg-gray-950 w-6"
                 @click="
                   () => {
                     product.quantity <= 0 ? '' : product.quantity--;
+                    product.quantity == 0 ? product.active = false : ''
+                    product.quantity == 0 ? removeCart(product) : ''
                   }
-                "
+                  "
               >
-                -
+              -
               </button>
             </div>
           </div>
@@ -105,7 +112,7 @@
   >
     <button
       @click="() => sendMessage()"
-      class="w-12 h-12 flex rounded-md items-center justify-center bg-gray-950"
+      class="w-12 h-12 flex rounded-r-md items-center justify-center bg-gray-950"
     >
       <Icon
         class="text-slate-50 ease-in-out w-7 h-7"
@@ -114,7 +121,6 @@
     </button>
     <div
       :class="`rounded-l-xl bg-white w-32 h-full flex justify-center items-center`"
-      @v-if="total !== '0,00'"
     >
       <h1 class="text-emerald-700 text-xl font-semibold">R$ {{ total }}</h1>
     </div>

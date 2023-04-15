@@ -5,7 +5,7 @@
     "description": "Contem um pacote de 100 gramas",
     "price": 5.99,
     "active": false,
-    "quantity": 1
+    "quantity": 0
   },
   {
     "id": 1,
@@ -13,6 +13,6 @@
     "description": "Contem um pacote de 100 gramas",
     "price": 7.49,
     "active": false,
-    "quantity": 1
+    "quantity": 0
   }
 ]
