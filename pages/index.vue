@@ -174,7 +174,7 @@ export default {
             )
             .join("%0A") + `%0A%0ATotal:%20%52%24${this.total}`
         );
-        window.location.href = `https://api.whatsapp.com/send?phone=556181010674&text=${message.join(
+        window.location.href = `https://api.whatsapp.com/send?phone=000000000000&text=${message.join(
           "%0A"
         )}`;
       }
