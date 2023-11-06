@@ -1,48 +1,33 @@
-# Nuxt Example
+# Domspice
 
-Deploy your [Nuxt](https://nuxt.com) project to Vercel with zero configuration.
+### Uma aplicação de catalogo e pedidos online que redireciona o pedido direto por mensagem para o WhatsApp
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/nuxtjs&template=nuxtjs)
+Feito com [Nuxt.js](https://nuxt.com/) 💚
 
-_Live Example: https://nuxtjs-template.vercel.app_
+## Começando:
 
-Look at the [Nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+Instale as Dependências do projeto:
 
 ```bash
-# yarn
-yarn
-
-# npm
 npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+# or
+yarn
+# or
+pnpm install
+# or
+bun install
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
+Rode o projeto localmente:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+E abra o [http://localhost:3000](http://localhost:3000) no seu navegador.
